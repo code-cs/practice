@@ -2,38 +2,50 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
+//props
+//array of names
+//map - creats a new array from calling a function for every element
+const books = [
+  {
+    title: 'The Russian (A Lance Spector Thriller Book 2)',
+    author: 'Saul Herzog',
+    img: 'https://m.media-amazon.com/images/I/71JfzXD9djL._SY342_.jpg',
+  },
+  {
+    title: 'Memory Games for Adults',
+    author: 'Keep Your Mind Young',
+    img: 'https://m.media-amazon.com/images/I/71JfzXD9djL._SY342_.jpg',
+  },
+];
+
+// const newBooks = books.map((book) => {
+//   return <h1>{book}</h1>;
+// });
+
+const names = ['Monireh', 'Shirin', 'Fatima'];
+//method one
+// const newName = names.map((name) => {
+//   return <h1>{name}</h1>;
+// });
 
 function BookList() {
   return (
     <section className='booklist'>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      {names.map((name) => {
+        return <h1>{name}</h1>;
+      })}
     </section>
   );
 }
 
-const Book = () => {
+const Book = ({ img, title, author }) => {
   return (
-    <article>
-      <Image />
-      <Title />
-      <Author />
+    <article className='book'>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
     </article>
   );
-};
-
-const Image = () => (
-  <img src='https://m.media-amazon.com/images/I/81zDai1qKCL._SY342_.jpg' />
-);
-const Title = () => <h2>Just Another Missing Person</h2>;
-const Author = () => {
-  return <h4>Gillian McAllister</h4>;
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
