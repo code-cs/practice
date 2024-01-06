@@ -31,8 +31,9 @@ const names = ['Monireh', 'Shirin', 'Fatima'];
 function BookList() {
   return (
     <section className='booklist'>
-      {names.map((name) => {
-        return <h1>{name}</h1>;
+      {books.map((book) => {
+        const{ img, title, author} = book;
+        return <Book img={img} title={title} author={author} />;
       })}
     </section>
   );
