@@ -8,7 +8,7 @@ export const Book = (props) => {
       {/* way one */}
       {/* <span>#{number + 1}</span> */}
       {/* way two */}
-      {`# ${number + 1}`}
+      <span className="number  ">{`# ${number + 1}`}</span> 
     </article>
   );
 };
